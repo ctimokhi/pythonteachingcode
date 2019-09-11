@@ -7,7 +7,7 @@ import csv
 from datetime import datetime
 
 
-source = requests.get('http://news.kennesaw.edu/in-the-news/?&categories=in%20the%20news&year=2018').text
+source = requests.get('https://news.kennesaw.edu/in-the-news/?&categories=in%20the%20news,&year=2018').text
 
 soup = BeautifulSoup(source, 'lxml')
 
