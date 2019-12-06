@@ -3,6 +3,7 @@
     For example, the changemade variable does not update once the program is started.
     So, if someone left the application open for a long time and made changes later, the data would not be accurate.
     '''
+debug = False
 import sqlite3
 #importing Error this way let's us refer to it by this name instead of sqlite3.Error
 from sqlite3 import Error 
@@ -89,7 +90,8 @@ def update_data():
        sql = "UPDATE vaccines set arrivaldate  = ? where id =  ?"
     elif (feature == "6"):
        sql = "UPDATE vaccines set expirationdate = ? where id =  ?"  
-        
+    if debug:
+        print("Update SQL is:",sql)    
     try:
         #if we call the connection execute method it invisibly creates a cursor for us
         conn.execute(sql, (update_value,update_ID))
@@ -127,7 +129,8 @@ conn = create_connection(database_file_path)
 now = datetime.datetime.now()
 
 if conn:
-    print ("Connected to database: ",conn)  
+    if debug:
+        print ("Connected to database: ",conn)  
 else:
     print("Error connecting to database.")
 

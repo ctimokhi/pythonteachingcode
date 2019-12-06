@@ -2,7 +2,7 @@
 import pymysql as my
 
 #root password is something you set when you install mysql on your system
-#the default may be blank; I used python123 for testing
+#the default may be blank; I used python123 for testing 
 #BE SURE to match your password to the password you set when installing MySQL. If in doubt, try a blank password
 dbconn = my.connect (host='127.0.0.1',port=3306,user='root', password='python123',  db='students')
  
